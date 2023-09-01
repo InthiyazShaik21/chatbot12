@@ -1,0 +1,26 @@
+import nltk.data
+from nltk.chat.util import Chat,reflections
+
+pairs=[
+    ['hi',['hello','hey ']],
+    ['what is your name',['my name is Chatbot 2.0','you can call me as 2.0']],
+    ['How are you',['Iam good ,thankYou!','I am doing well']],
+    ['Bye',['Good Bye!','See you later.','Bye']],
+    ['default',['I am not sure how to respond to that.','can you plaese repeat?' ]],
+    ['ok',['kindly stay with me','please']],
+]
+chatbot=Chat(pairs,reflections)
+
+def chat_bot():
+    print("chatBOt:hi!how  can  i help you today?")
+    while True:
+        user_input=input("you: ")
+        if user_input.lower()=='exit':
+            print("chatbot:goodBye!")
+            break
+        response=chatbot.respond(user_input)
+        print("chatbot:",response)
+
+if __name__ =='__main__':
+    nltk.download('punkt')
+    chat_bot()
